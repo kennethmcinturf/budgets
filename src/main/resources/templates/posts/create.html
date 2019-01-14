@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Posts</title>
+</head>
+<body>
+<form action="/posts/create" method="post" th:object="${post}">
+    <span class="underline">Title</span>
+    <br />
+    <br/>
+        <input th:field="*{title}" />
+    <br />
+    <span class="underline">Body</span>
+    <br />
+        <textarea th:field="*{body}"/>
+    <br />
+    <span class="underline">Home Team</span>
+    <br/>
+    <input th:field="*{homeTeam}" />
+    <br />
+    <span class="underline">Home Score</span>
+    <br/>
+    <input th:field="*{homeScore}" />
+    <br />
+    <span class="underline">Away Team</span>
+    <br/>
+    <input th:field="*{awayTeam}" />
+    <br />
+    <span class="underline">Away Score</span>
+    <br/>
+    <input th:field="*{awayScore}" />
+    <br />
+    <br/>
+    <input type="submit" />
+</form>
+</body>
+</html>
