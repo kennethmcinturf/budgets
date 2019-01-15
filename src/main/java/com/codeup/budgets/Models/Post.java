@@ -84,6 +84,10 @@ public class Post {
         this.homeScore = homeScore;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getAwayScore() {
         return awayScore;
     }

@@ -19,6 +19,18 @@ public class PostService {
         return post;
     }
 
+    public void edit(int id, String title, String body, String date, String homeTeam, String awayTeam, int awayScore, int homeScore) {
+        Post post = one(id);
+        post.setTitle(title);
+        post.setBody(body);
+        post.setDate(date);
+        post.setHomeTeam(homeTeam);
+        post.setHomeScore(homeScore);
+        post.setAwayTeam(awayTeam);
+        post.setAwayScore(awayScore);
+        postsDao.save(post);
+    }
+
     public List<Post> all(){
         return  (List<Post>) postsDao.findAll();
     }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+</head>
+<body>
+<div th:replace="partials :: header"></div>
+<nav th:replace="partials :: navbar"></nav>
+<div class="container">
+    <div class="row">
+        <form th:action="'/posts/' + ${post.id} + '/edit'" method="post" style="margin-bottom: 60px">
+            <div class="form-group">
+                <label for="Title">Title</label>
+                <input type="text" class="form-control" id="Title" placeholder="Title" th:value="*{post.title}" name="title"/>
+            </div>
+            <div class="form-group">
+                <label for="Body">Body</label>
+                <textarea type="text" class="form-control" id="Body" placeholder="Body" th:text="*{post.body}" name="body"/>
+            </div>
+            <div class="form-group">
+                <label for="Date">Date</label>
+                <input type="date" class="form-control" id="Date" placeholder="Body" th:value="*{post.date}" name="date"/>
+            </div>
+            <div class="form-group">
+                <label for="HomeTeam">Home Team</label>
+                <input type="text" class="form-control" id="HomeTeam" placeholder="Home Team Name" th:value="*{post.homeTeam}" name="homeTeam"/>
+            </div>
+            <div class="form-group">
+                <label for="HomeScore">Home Score</label>
+                <input type="number" class="form-control" id="HomeScore" placeholder="Home Score" th:value="*{post.homeScore}" name="homeScore"/>
+            </div>
+            <div class="form-group">
+                <label for="AwayTeam">Away Team</label>
+                <input type="text" class="form-control" id="AwayTeam" placeholder="Away Team Name" th:value="*{post.awayTeam}" name="awayTeam"/>
+            </div>
+            <div class="form-group">
+                <label for="AwayScore">Away Score</label>
+                <input type="number" class="form-control" id="AwayScore" placeholder="Away Score" th:value="*{post.awayScore}" name="awayScore"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div th:replace="partials :: footer"></div>
+</div>
+</body>
+</html>
