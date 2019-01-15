@@ -11,6 +11,9 @@ public class Post {
     @Column(nullable = false, length = 100)
     private String title;
 
+    @Column(nullable = false, length = 50)
+    private String date;
+
     @Column(nullable = false, columnDefinition = "text")
     private String body;
 
@@ -25,6 +28,17 @@ public class Post {
 
     @Column(nullable = false)
     private int awayScore;
+
+    public Post() {
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public int getId() {
         return id;

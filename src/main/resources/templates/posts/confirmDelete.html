@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+    <meta charset="UTF-8"/>
+    <title>Indiv Post</title>
+</head>
+<body>
+<div th:replace="partials :: header"></div>
+<nav th:replace="partials :: navbar"></nav>
+<div class="container">
+    <div class="row text-center">
+        <h2>Are you sure you Want to delete this post</h2>
+    </div>
+    <div class="row text-center" style="margin-bottom: 20px">
+        <form th:action="@{'/posts/' + ${post.getId()} + '/delete'}" method="post" style="margin-bottom: 60px">
+            <button type="submit" class="btn btn-primary">Yes, I'm sure</button>
+        </form>
+        <form th:action="@{'/posts/' + ${post.getId()}}" method="get" style="margin-bottom: 60px">
+            <button type="submit" class="btn btn-primary">No, get me out of here!</button>
+        </form>
+    </div>
+</div>
+<div th:replace="partials :: footer"></div>
+</body>
+</html>

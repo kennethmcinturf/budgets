@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Posts</title>
+<head th:replace="partials :: head">
 </head>
 <body>
-<form action="/posts/create" method="post" th:object="${post}">
-    <span class="underline">Title</span>
-    <br />
-    <br/>
-        <input th:field="*{title}" />
-    <br />
-    <span class="underline">Body</span>
-    <br />
-        <textarea th:field="*{body}"/>
-    <br />
-    <span class="underline">Home Team</span>
-    <br/>
-    <input th:field="*{homeTeam}" />
-    <br />
-    <span class="underline">Home Score</span>
-    <br/>
-    <input th:field="*{homeScore}" />
-    <br />
-    <span class="underline">Away Team</span>
-    <br/>
-    <input th:field="*{awayTeam}" />
-    <br />
-    <span class="underline">Away Score</span>
-    <br/>
-    <input th:field="*{awayScore}" />
-    <br />
-    <br/>
-    <input type="submit" />
-</form>
+<div th:replace="partials :: header"></div>
+<nav th:replace="partials :: navbar"></nav>
+<div class="container">
+    <div class="row">
+        <form action="/posts/create" method="post" th:object="${post}" style="margin-bottom: 60px">
+            <div class="form-group">
+                <label for="Title">Title</label>
+                <input type="text" class="form-control" id="Title" placeholder="Title" th:field="*{title}"/>
+            </div>
+            <div class="form-group">
+                <label for="Body">Body</label>
+                <textarea type="text" class="form-control" id="Body" placeholder="Body" th:field="*{body}"/>
+            </div>
+            <div class="form-group">
+                <label for="Date">Date</label>
+                <input type="date" class="form-control" id="Date" placeholder="Body" th:field="*{date}"/>
+            </div>
+            <div class="form-group">
+                <label for="HomeTeam">Home Team</label>
+                <input type="text" class="form-control" id="HomeTeam" placeholder="Home Team Name" th:field="*{homeTeam}"/>
+            </div>
+            <div class="form-group">
+                <label for="HomeScore">Home Score</label>
+                <input type="number" class="form-control" id="HomeScore" placeholder="Home Score" th:field="*{homeScore}"/>
+            </div>
+            <div class="form-group">
+                <label for="AwayTeam">Away Team</label>
+                <input type="text" class="form-control" id="AwayTeam" placeholder="Away Team Name" th:field="*{awayTeam}"/>
+            </div>
+            <div class="form-group">
+                <label for="AwayScore">Away Score</label>
+                <input type="number" class="form-control" id="AwayScore" placeholder="Away Score" th:field="*{awayScore}"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div th:replace="partials :: footer"></div>
+</div>
 </body>
 </html>

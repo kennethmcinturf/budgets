@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+    <meta charset="UTF-8"/>
+    <title>Indiv Post</title>
+</head>
+<body>
+<div th:replace="partials :: header"></div>
+<nav th:replace="partials :: navbar"></nav>
+<div class="container justify-content-center">
+    <div class="row text-center" style="margin-bottom: 20px">
+        <h1 th:text="${post.getTitle()}" class="underline"/>
+    </div>
+    <div class="row text-center" style="margin-bottom: 20px">
+        <p th:text="${post.getBody()}" />
+    </div>
+    <div class="row text-center" style="margin-bottom: 20px">
+        <p th:text="${post.getDate()}" />
+    </div>
+    <div class="row text-center" style="margin-bottom: 50px">
+        <div class="col-5">
+            <div class="card">
+                <div class="card-body border" style="border: 1px solid black">
+                    <h2>Home Team:</h2>
+                    <h3 th:text="${post.getHomeTeam()}" />
+                    <p th:text="${post.getHomeScore()}" ></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="card">
+                <div class="card-body" style="border: 1px solid black">
+                    <h2>Away Team:</h2>
+                    <h3 th:text="${post.getAwayTeam()}" />
+                    <p th:text="${post.getAwayScore()}" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom: 20px">
+        <a th:href="@{'/posts/' + ${post.getId()} + '/delete'}" class="button">Delete Post</a>
+        <a th:href="@{'/posts/' + ${post.getId()} + '/edit'}" class="button">Edit Post</a>
+    </div>
+    <div class="row justify-content-center">
+        <div id="chart_div" style="margin-left: 32%; margin-bottom: 40px"></div>
+    </div>
+</div>
+<div th:replace="partials :: footer"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script th:inline="javascript">
+    let post = /*[[${post}]]*/ "";
+
+    let createGraph = () => {
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            let data = new google.visualization.DataTable();
+            data.addColumn('string', 'Team');
+            data.addColumn('number', 'Score');
+            data.addRows([
+                [post.homeTeam, post.homeScore],
+                [post.awayTeam, post.awayScore]
+            ]);
+            let options = {
+                'title': 'Score Breakdown',
+                'width': 400,
+                'height': 300
+            };
+
+            let chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    };
+
+    createGraph();
+</script>
+</body>
+</html>

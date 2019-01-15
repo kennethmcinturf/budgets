@@ -1,0 +1,91 @@
+/*====== Background =====*/
+body{
+    background-color: #FFF4EC;
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+    font-size: 18px;
+}
+
+/*====== Nav Bar =====*/
+.glad-nav {
+    color: #FFF4EC;
+    background-color: rgb(69,122,178);
+    border-color: rgb(69,122,178);
+}
+
+ul.nav li a, ul.nav li a:visited {
+    color: #FFF4EC;
+}
+
+ul.nav li a:hover, ul.nav li a:active {
+    color: #FFF4EC;
+}
+
+div.glad-nav a:visited {
+    color: #FFF4EC;
+}
+
+div.glad-nav a:hover, div.glad-nav a:active {
+    color: #FFF4EC;
+}
+
+
+/*====== Submit Buttons ======*/
+.submit-blue{
+    background-color: #6684A5;
+
+}
+
+/*====== Displayed Ads ======*/
+div.ads form a, div.ads form a:visited {
+    font-size: 24px;
+}
+
+div.ads form a:hover, div.ads form a:active {
+    font-size: 24px;
+}
+
+.posts {
+    font-size: 18px;
+    margin-bottom: 30px;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.noMargin{
+    margin-bottom: 0px;
+}
+
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+}
+.button {
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 40%;
+}
+
+.border{
+    border: 1px solid black;
+}
