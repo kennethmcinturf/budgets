@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+</head>
+<body>
+<div th:replace="partials :: header"></div>
+<nav th:replace="partials :: navbar"></nav>
+<div class="container">
+    <div class="row">
+        <form th:action="@{/sign-up}" method="POST" th:object="${user}" style="margin-bottom: 60px">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Username" th:field="*{username}"/>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Email" th:field="*{email}"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" th:field="*{password}"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div th:replace="partials :: footer"></div>
+</div>
+</body>
+</html>

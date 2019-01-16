@@ -1,7 +1,9 @@
 package com.codeup.budgets.Controllers;
 
 import com.codeup.budgets.Models.Post;
+import com.codeup.budgets.Models.User;
 import com.codeup.budgets.Services.PostService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +29,7 @@ public class PostControllers {
         @RequestMapping(path = "/posts/create")
         @PostMapping
         public String createPost(@ModelAttribute Post post) {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             Post newPost = new Post();
             newPost.setTitle(post.getTitle());
             newPost.setBody(post.getBody());
@@ -35,6 +38,7 @@ public class PostControllers {
             newPost.setAwayTeam(post.getAwayTeam());
             newPost.setAwayScore(post.getAwayScore());
             newPost.setHomeScore(post.getHomeScore());
+            newPost.setUser(user);
             postService.create(newPost);
             return "redirect:http://localhost:8080/posts";
         }

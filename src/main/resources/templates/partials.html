@@ -10,7 +10,7 @@
 <body>
 <div class="header" th:fragment="navbar">
     <h1>Sports Tracker</h1>
-    <p>The place to track all of your stories, past, present, and Future</p>
+    <p>The place to track all of your stories, past, present, and future</p>
 </div>
 <nav class="navbar navbar-default" th:fragment="navbar">
     <div class="container-fluid glad-nav">
@@ -24,7 +24,7 @@
             <li><a href="http://localhost:8080/login">Log-in</a></li>
             <li>
                 <form th:action="@{/logout}" th:method="post">
-                    <button class="btn-link btn" style="margin-top: 8px; color: white">Logout</button>
+                    <button class="btn-link btn btn-primary" style="margin-top: 8px; color: white">Logout</button>
                 </form>
             </li>
         </ul>

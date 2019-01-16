@@ -17,6 +17,9 @@
     <div class="row text-center" style="margin-bottom: 20px">
         <p th:text="${post.getDate()}" />
     </div>
+    <div. class="row text-center" style="margin-bottom: 20px">
+        <p>Posted Created by: <span th:text="${post.getUser().getUsername()}"></span></p>
+    </div>
     <div class="row text-center" style="margin-bottom: 50px">
         <div class="col-5">
             <div class="card">

@@ -1,5 +1,7 @@
 package com.codeup.budgets.Models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -28,6 +30,19 @@ public class Post {
 
     @Column(nullable = false)
     private int awayScore;
+
+    @ManyToOne
+    @JsonManagedReference
+    @JoinColumn (name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Post() {
     }
